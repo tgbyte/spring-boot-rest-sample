@@ -15,7 +15,7 @@ apply plugin: 'spring-boot'
 
 jar {
     baseName = 'gs-accessing-data-rest'
-    version =  '0.1.0'
+    version = '0.1.0'
 }
 
 repositories {
@@ -25,9 +25,9 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.springframework.boot:spring-boot-starter-data-jpa")
-	compile("com.h2database:h2")
-	compile("org.springframework.data:spring-data-rest-webmvc:2.0.0.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    compile("org.springframework.data:spring-data-rest-webmvc:2.0.0.RELEASE")
 }
 
 task wrapper(type: Wrapper) {
