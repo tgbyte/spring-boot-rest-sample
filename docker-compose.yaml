@@ -1,31 +1,20 @@
 version: '2'
 services:
     mysql:
-        image: mysql:5.7
-        environment:
-            - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=sample
+        extends:
+            file: docker-compose/mysql.yaml
+            service: mysql
         networks:
             - database
-        volumes:
-            - spring-rest-mysql:/var/lib/mysql
-
-    rest-service:
-        build:
-            context: .
-        environment:
-            - SPRING_PROFILES_ACTIVE=docker
+    spring-rest:
+        extends:
+            file: docker-compose/services.yaml
+            service: spring-rest
         networks:
             - database
         links:
             - mysql
-        ports:
-            - 8080:8080
-        volumes:
-            - /dev/urandom:/dev/random
-
 networks:
     database:
-
 volumes:
-    spring-rest-mysql:
+    mysql-data:

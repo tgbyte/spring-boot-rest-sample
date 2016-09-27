@@ -1,0 +1,9 @@
+version: '2'
+services:
+    spring-rest:
+        build:
+            context: ..
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
+        volumes:
+            - /dev/urandom:/dev/random
